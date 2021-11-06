@@ -20,12 +20,12 @@ const options = {
     defaultDate: new Date(),
     minuteIncrement: 1,
     onClose(selectedDates) {
-    //   console.log(selectedDates[0]);
-
+      
       const currentDateTime = Date.now();
       const selectedDateTime = selectedDates[0].getTime();
       
       currentDateTime > selectedDateTime ? Notify.failure("Please choose a date in the future") : refs.startBtn.removeAttribute('disabled'); 
+    
     },
   };
 
@@ -47,8 +47,7 @@ function onClickStartBtn(){
         const deltaTime = selectedDateTime - currentDateTime;
         
         const time = convertMs(deltaTime)
-        console.log("🚀 ~ timerId ~ time", time)
-        
+
         updateTime(time);
 
         if (time.seconds === "00") {
