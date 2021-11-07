@@ -54,7 +54,7 @@ function onClickStartBtn(){
         const time = convertMs(deltaTime);
         updateTime(time);
 
-        if (deltaTime <= 1000) {
+        if (deltaTime < 1000) {
           removeInterval(timerId);
         }
 
