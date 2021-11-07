@@ -2,6 +2,11 @@ import flatpickr from "flatpickr";
 import 'flatpickr/dist/flatpickr.min.css';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
+Notify.init({
+  width: "400px",
+  cssAnimationStyle: 'from-right',
+});
+
 const refs = {
     startBtn: document.querySelector('button[data-start]'),
     input: document.querySelector('#datetime-picker'),
@@ -46,11 +51,10 @@ function onClickStartBtn(){
     
         const deltaTime = selectedDateTime - currentDateTime;
         
-        const time = convertMs(deltaTime)
-
+        const time = convertMs(deltaTime);
         updateTime(time);
 
-        if (time.seconds === "00") {
+        if (deltaTime <= 1000) {
           removeInterval(timerId);
         }
 
