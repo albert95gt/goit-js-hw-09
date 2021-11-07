@@ -32,18 +32,13 @@ function onFormSubmit(event){
  for (let i = 0; i < amount; i++) {
   
   createPromise(i + 1, delay);
-  delay += step;
+  delay += step
   
    
   }
       
 }
     
-    
-     
-    
-    
-
 function createPromise(position, delay) {
 
   return new Promise((resolve, reject) => {
@@ -66,4 +61,9 @@ function createPromise(position, delay) {
     Notify.failure(`❌ Rejected promise ${position} in ${delay}ms`);
   });
 }
+    
+     
+    
+    
+
 
